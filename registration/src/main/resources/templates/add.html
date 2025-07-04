@@ -1,15 +1,73 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <title>Add Book</title>
+  <meta charset="UTF-8">
+  <title>Add New Book</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #667eea, #764ba2);
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border 0.3s ease;
+    }
+
+    input[type="text"]:focus, input[type="number"]:focus {
+      border-color: #764ba2;
+      outline: none;
+    }
+
+    button {
+      background-color: #764ba2;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #667eea;
+    }
+  </style>
 </head>
 <body>
-    <h1>Add Book</h1>
-    <form th:action="@{/add}" th:object="${book}" method="post">
-        <p>Title: <input type="text" th:field="*{title}" required/></p>
-        <p>Author: <input type="text" th:field="*{author}" required/></p>
-        <button type="submit">Add</button>
+  <div class="form-container">
+    <h2>Add New Book 📚</h2>
+    <form method="POST" action="/addBook">
+      <input type="text" name="title" placeholder="Book Title" required>
+      <input type="text" name="author" placeholder="Author Name" required>
+      <input type="number" name="year" placeholder="Year of Publication" required>
+      <button type="submit">Submit 📥</button>
     </form>
-    <a href="/">Back to List</a>
+  </div>
 </body>
 </html>
